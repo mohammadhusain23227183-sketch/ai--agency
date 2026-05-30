@@ -59,15 +59,15 @@ textarea{min-height:90px;resize:vertical}
 .dot{width:7px;height:7px;border-radius:50%;background:currentColor;display:inline-block}
 .msg-ok{font-size:13px;color:#4ade80;margin-top:10px;font-weight:600}
 .msg-err{font-size:13px;color:#f87171;margin-top:10px}
-.hint{font-size:12px;color:#555;margin-bottom:14px;padding:10px 14px;background:#111;border-radius:8px;border-left:3px solid #333}
-.section-gap{margin-bottom:20px}
+.hint{font-size:12px;color:#aaa;margin-bottom:14px;padding:10px 14px;background:#111;border-radius:8px;border-left:3px solid #4ade80}
+.groq-badge{background:#1a1a2e;color:#a78bfa;font-size:11px;padding:3px 10px;border-radius:20px;font-weight:600;margin-left:8px}
 @media(max-width:640px){.stats{grid-template-columns:1fr 1fr}.two{grid-template-columns:1fr}.content{padding:16px}.tabs{padding:10px 16px}}
 </style>
 </head>
 <body>
 
 <div class="topbar">
-  <h1>🤖 AI Copywriting Agency</h1>
+  <h1>🤖 AI Copywriting Agency <span class="groq-badge">Groq FREE ⚡</span></h1>
   <span class="live">24/7 Live</span>
 </div>
 
@@ -101,7 +101,7 @@ textarea{min-height:90px;resize:vertical}
   <div class="btns">
     <button class="btn btn-main" onclick="switchTab('writer',document.querySelectorAll('.tab')[2])">✍️ AI Writer Kholo</button>
     <button class="btn" onclick="switchTab('leads',document.querySelectorAll('.tab')[1])">👥 Leads Dekho</button>
-    <button class="btn" onclick="switchTab('settings',document.querySelectorAll('.tab')[5])">⚙️ API Keys Daalo</button>
+    <button class="btn" onclick="switchTab('settings',document.querySelectorAll('.tab')[5])">⚙️ Settings</button>
   </div>
 </div>
 
@@ -125,8 +125,8 @@ textarea{min-height:90px;resize:vertical}
 <!-- AI WRITER -->
 <div id="writer" class="panel">
   <div class="card">
-    <div class="card-title">✍️ AI Email + Ad Writer</div>
-    <div class="hint">⚠️ Pehle Settings tab mein Claude API Key daalo — phir AI kaam karega</div>
+    <div class="card-title">✍️ AI Email + Ad Writer <span class="groq-badge">Groq FREE ⚡</span></div>
+    <div class="hint">✅ Groq FREE API use ho rahi hai — Settings mein Groq API Key daalo pehle!</div>
     <div class="two">
       <div>
         <label>Client ka Naam</label>
@@ -166,7 +166,7 @@ textarea{min-height:90px;resize:vertical}
         </select>
       </div>
     </div>
-    <button class="btn btn-main" onclick="generateContent()">🤖 AI se Likhwao</button>
+    <button class="btn btn-main" onclick="generateContent()">⚡ AI se Likhwao (FREE)</button>
     <div style="margin-top:16px">
       <label>AI Ka Output (English):</label>
       <div class="ai-out" id="writer-out">Upar details bharo aur "AI se Likhwao" dabao...</div>
@@ -182,12 +182,12 @@ textarea{min-height:90px;resize:vertical}
 <div id="autoreply" class="panel">
   <div class="card">
     <div class="card-title">💬 Auto Reply — Client ka Message Paste Karo</div>
-    <div class="hint">⚠️ Pehle Settings tab mein Claude API Key daalo</div>
+    <div class="hint">✅ Groq FREE AI reply likhega — Settings mein key daalo pehle!</div>
     <label>Client ka Naam</label>
     <input id="ar-name" type="text" placeholder="e.g. Sarah Thompson"/>
     <label>Client ne Jo Likha (Paste Karo)</label>
     <textarea id="ar-msg" placeholder="e.g. Hi, I'm interested but what exactly do you offer for $500/month?"></textarea>
-    <button class="btn btn-main" onclick="generateReply()">🤖 AI Reply Banao</button>
+    <button class="btn btn-main" onclick="generateReply()">⚡ AI Reply Banao (FREE)</button>
     <div style="margin-top:16px">
       <label>AI Ka Auto Reply (English):</label>
       <div class="ai-out" id="reply-out">Client ka message upar paste karo...</div>
@@ -205,36 +205,37 @@ textarea{min-height:90px;resize:vertical}
     <div class="card-title">🔔 Tere Alerts — Jab Client $500 ke Liye Ready Ho</div>
     <div id="alerts-list">
       <div class="alert-row"><span class="alert-icon">💰</span><div><div class="alert-text">Nina Scott $500/month ke liye ready hai! Payment link bhej do abhi.</div><div class="alert-time">5 min pehle</div></div></div>
-      <div class="alert-row"><span class="alert-icon">💬</span><div><div class="alert-text">Sarah Thompson ne reply kiya — AI ne automatically $500 offer de diya!</div><div class="alert-time">22 min pehle</div></div></div>
-      <div class="alert-row"><span class="alert-icon">✅</span><div><div class="alert-text">Emma Wilson ne $500 payment kar di! Teri agency ko naya client mila.</div><div class="alert-time">2 ghante pehle</div></div></div>
+      <div class="alert-row"><span class="alert-icon">💬</span><div><div class="alert-text">Sarah ne reply kiya — AI ne automatically $500 offer de diya!</div><div class="alert-time">22 min pehle</div></div></div>
+      <div class="alert-row"><span class="alert-icon">✅</span><div><div class="alert-text">Emma Wilson ne $500 payment kar di! Naya client mila.</div><div class="alert-time">2 ghante pehle</div></div></div>
       <div class="alert-row"><span class="alert-icon">📧</span><div><div class="alert-text">48 ecommerce leads ko AI ne aaj automatically email bheja.</div><div class="alert-time">4 ghante pehle</div></div></div>
     </div>
-  </div>
-  <div class="btns">
-    <button class="btn btn-main" onclick="switchTab('autoreply',document.querySelectorAll('.tab')[3])">💬 Reply Handle Karo</button>
   </div>
 </div>
 
 <!-- SETTINGS -->
 <div id="settings" class="panel">
-  <div class="card section-gap">
+  <div class="card">
     <div class="card-title">🔑 API Keys — Yahan Daalo</div>
-    <div class="hint">Yeh keys sirf tere browser mein rehti hain — koi nahi dekh sakta</div>
-    <label>Claude (Anthropic) API Key</label>
-    <input id="claude-key" type="password" placeholder="sk-ant-api03-..."/>
-    <label>Apollo.io API Key</label>
+    <div class="hint">✅ Groq FREE hai — 14,400 requests/day — credit card nahi chahiye!</div>
+
+    <label>⚡ Groq API Key (FREE — AI Writing ke liye)</label>
+    <input id="groq-key" type="password" placeholder="gsk_..."/>
+
+    <label>🗄️ Apollo.io API Key (Leads ke liye)</label>
     <input id="apollo-key" type="password" placeholder="Apollo API key..."/>
-    <label>Brevo API Key (Email bhejne ke liye)</label>
+
+    <label>📧 Brevo API Key (Email bhejne ke liye)</label>
     <input id="brevo-key" type="password" placeholder="xkeysib-..."/>
+
     <div class="btns">
       <button class="btn btn-main" onclick="saveKeys()">💾 Keys Save Karo</button>
-      <button class="btn" onclick="testClaude()">🧪 Claude Test Karo</button>
+      <button class="btn" onclick="testGroq()">🧪 Groq Test Karo</button>
     </div>
     <div id="keys-msg"></div>
   </div>
   <div class="card">
     <div class="card-title">🌐 Connection Status</div>
-    <div class="api-row"><span class="api-name">🤖 Claude API</span><span class="api-ok" id="st-claude"><span class="dot"></span> Ready</span></div>
+    <div class="api-row"><span class="api-name">⚡ Groq AI (FREE)</span><span id="st-groq" class="api-wait"><span class="dot"></span> Key Daalo</span></div>
     <div class="api-row"><span class="api-name">🗄️ Apollo.io</span><span id="st-apollo" class="api-wait"><span class="dot"></span> Key Daalo</span></div>
     <div class="api-row"><span class="api-name">📧 Brevo</span><span id="st-brevo" class="api-wait"><span class="dot"></span> Key Daalo</span></div>
     <div class="api-row"><span class="api-name">🌍 Vercel</span><span class="api-ok"><span class="dot"></span> 24/7 Live</span></div>
@@ -253,35 +254,31 @@ function switchTab(id,el){
 }
 
 function animCount(id,target,prefix,dur){
-  const el=document.getElementById(id);
-  if(!el)return;
+  const el=document.getElementById(id);if(!el)return;
   let cur=0;const step=target/(dur/16);
-  const t=setInterval(()=>{
-    cur=Math.min(cur+step,target);
-    el.textContent=prefix+Math.round(cur).toLocaleString();
-    if(cur>=target)clearInterval(t);
-  },16);
+  const t=setInterval(()=>{cur=Math.min(cur+step,target);el.textContent=prefix+Math.round(cur).toLocaleString();if(cur>=target)clearInterval(t);},16);
 }
-animCount('c1',245,'',1000);
-animCount('c2',1840,'',1200);
-animCount('c3',67,'',800);
-animCount('c4',3500,'$',1400);
+animCount('c1',245,'',1000);animCount('c2',1840,'',1200);animCount('c3',67,'',800);animCount('c4',3500,'$',1400);
 
-function getKey(){return document.getElementById('claude-key').value.trim();}
+function getGroqKey(){return document.getElementById('groq-key').value.trim();}
 
-async function callClaude(sys,user,outEl){
-  const key=getKey();
-  if(!key){outEl.textContent='⚠️ Settings mein Claude API Key pehle daalo!';return null;}
-  outEl.textContent='🤖 AI likh raha hai...';
+async function callGroq(sys,user,outEl){
+  const key=getGroqKey();
+  if(!key){outEl.textContent='⚠️ Settings mein Groq API Key pehle daalo!';return null;}
+  outEl.textContent='⚡ AI likh raha hai...';
   try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{
+    const res=await fetch('https://api.groq.com/openai/v1/chat/completions',{
       method:'POST',
-      headers:{'Content-Type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
-      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:sys,messages:[{role:'user',content:user}]})
+      headers:{'Content-Type':'application/json','Authorization':'Bearer '+key},
+      body:JSON.stringify({
+        model:'llama3-8b-8192',
+        messages:[{role:'system',content:sys},{role:'user',content:user}],
+        max_tokens:1000
+      })
     });
     const data=await res.json();
     if(data.error){outEl.textContent='❌ Error: '+data.error.message;return null;}
-    const text=data.content[0].text;
+    const text=data.choices[0].message.content;
     outEl.textContent=text;
     return text;
   }catch(e){outEl.textContent='❌ Error: '+e.message;return null;}
@@ -293,13 +290,10 @@ async function generateContent(){
   const country=document.getElementById('country').value;
   const ctype=document.getElementById('ctype').value;
   const out=document.getElementById('writer-out');
-  const sys='You are an expert copywriter for an AI copywriting agency. Write ONLY in English. Be professional, persuasive, and concise. Focus on ecommerce businesses. Keep emails under 150 words.';
-  const prompt=`Write a "${ctype}" for:\n- Client: ${name}\n- Business: ${btype}\n- Country: ${country}\nIf cold email: offer FREE copy audit first.\nIf $500 offer: explain monthly deliverables (product descriptions, ad copy, email sequences, SEO content).\nSign off as: Alex | AI Copywriting Agency`;
-  const result=await callClaude(sys,prompt,out);
-  if(result){
-    document.getElementById('copy-btn').style.display='inline-block';
-    document.getElementById('send-btn').style.display='inline-block';
-  }
+  const sys='You are an expert copywriter for an AI copywriting agency. Write ONLY in English. Be professional, persuasive, concise. Focus on ecommerce. Keep emails under 150 words.';
+  const prompt=`Write a "${ctype}" for:\n- Client: ${name}\n- Business: ${btype}\n- Country: ${country}\nIf cold email: offer FREE copy audit first to build trust.\nIf $500 offer: explain monthly deliverables clearly (product descriptions, ad copy, email sequences, SEO content).\nSign off as: Alex | AI Copywriting Agency`;
+  const result=await callGroq(sys,prompt,out);
+  if(result){document.getElementById('copy-btn').style.display='inline-block';document.getElementById('send-btn').style.display='inline-block';}
 }
 
 async function generateReply(){
@@ -307,67 +301,61 @@ async function generateReply(){
   const msg=document.getElementById('ar-msg').value.trim();
   if(!msg){document.getElementById('reply-out').textContent='⚠️ Client ka message pehle daalo!';return;}
   const out=document.getElementById('reply-out');
-  const sys='You are an AI sales assistant for a copywriting agency. Reply ONLY in English. Be warm, confident and guide toward $500/month retainer. Keep reply under 120 words.';
-  const prompt=`Client: ${name}\nMessage: "${msg}"\nWrite reply that: 1) Acknowledges warmly 2) Explains $500/month value 3) Ends with one closing question.`;
-  const result=await callClaude(sys,prompt,out);
-  if(result){
-    document.getElementById('ar-copy').style.display='inline-block';
-    document.getElementById('ar-alert').style.display='inline-block';
-  }
+  const sys='You are an AI sales assistant for a copywriting agency. Reply ONLY in English. Be warm, confident, guide toward $500/month retainer. Under 120 words.';
+  const prompt=`Client: ${name}\nMessage: "${msg}"\nWrite reply: 1) Acknowledge warmly 2) Explain $500/month value 3) End with one closing question.`;
+  const result=await callGroq(sys,prompt,out);
+  if(result){document.getElementById('ar-copy').style.display='inline-block';document.getElementById('ar-alert').style.display='inline-block';}
 }
 
-async function testClaude(){
+async function testGroq(){
   const msg=document.getElementById('keys-msg');
-  const key=getKey();
-  if(!key){msg.className='msg-err';msg.textContent='⚠️ Claude API Key pehle daalo!';return;}
-  msg.className='';msg.textContent='🧪 Test ho raha hai...';
+  const key=getGroqKey();
+  if(!key){msg.className='msg-err';msg.textContent='⚠️ Groq API Key pehle daalo!';return;}
+  msg.className='';msg.textContent='⚡ Test ho raha hai...';
   try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{
+    const res=await fetch('https://api.groq.com/openai/v1/chat/completions',{
       method:'POST',
-      headers:{'Content-Type':'application/json','x-api-key':key,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
-      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:30,messages:[{role:'user',content:'Say: Connected!'}]})
+      headers:{'Content-Type':'application/json','Authorization':'Bearer '+key},
+      body:JSON.stringify({model:'llama3-8b-8192',messages:[{role:'user',content:'Say: Groq connected!'}],max_tokens:20})
     });
     const data=await res.json();
     if(data.error){msg.className='msg-err';msg.textContent='❌ '+data.error.message;}
-    else{msg.className='msg-ok';msg.textContent='✅ Claude connected! Ab AI Writer mein jao.';document.getElementById('st-claude').innerHTML='<span class="dot"></span> Connected';}
+    else{msg.className='msg-ok';msg.textContent='✅ Groq connected! Ab AI Writer mein jao — bilkul FREE!';document.getElementById('st-groq').innerHTML='<span class="dot" style="background:#4ade80"></span> <span style="color:#4ade80;font-weight:600">Connected ✅</span>';}
   }catch(e){msg.className='msg-err';msg.textContent='❌ '+e.message;}
 }
 
 function saveKeys(){
   const apollo=document.getElementById('apollo-key').value.trim();
   const brevo=document.getElementById('brevo-key').value.trim();
+  const groq=getGroqKey();
   const msg=document.getElementById('keys-msg');
-  if(apollo)document.getElementById('st-apollo').innerHTML='<span class="dot"></span> Connected';
-  if(brevo)document.getElementById('st-brevo').innerHTML='<span class="dot"></span> Connected';
-  msg.className='msg-ok';msg.textContent='✅ Keys save ho gayi! AI Writer tab mein jao aur test karo.';
+  if(groq)document.getElementById('st-groq').innerHTML='<span class="dot" style="background:#4ade80"></span> <span style="color:#4ade80;font-weight:600">Connected ✅</span>';
+  if(apollo)document.getElementById('st-apollo').innerHTML='<span class="dot" style="background:#4ade80"></span> <span style="color:#4ade80;font-weight:600">Connected ✅</span>';
+  if(brevo)document.getElementById('st-brevo').innerHTML='<span class="dot" style="background:#4ade80"></span> <span style="color:#4ade80;font-weight:600">Connected ✅</span>';
+  msg.className='msg-ok';msg.textContent='✅ Keys save ho gayi! Groq Test Karo button dabao.';
   setTimeout(()=>msg.textContent='',4000);
 }
 
 function copyOutput(){
   navigator.clipboard.writeText(document.getElementById('writer-out').textContent).then(()=>{
-    const b=document.getElementById('copy-btn');b.textContent='✅ Copy Ho Gaya!';
-    setTimeout(()=>b.textContent='📋 Copy Karo',2000);
+    const b=document.getElementById('copy-btn');b.textContent='✅ Copy Ho Gaya!';setTimeout(()=>b.textContent='📋 Copy Karo',2000);
   });
 }
 
 function copyReply(){
   navigator.clipboard.writeText(document.getElementById('reply-out').textContent).then(()=>{
-    const b=document.getElementById('ar-copy');b.textContent='✅ Copy Ho Gaya!';
-    setTimeout(()=>b.textContent='📋 Copy Karo',2000);
+    const b=document.getElementById('ar-copy');b.textContent='✅ Copy Ho Gaya!';setTimeout(()=>b.textContent='📋 Copy Karo',2000);
   });
 }
 
-function markSent(){
-  const b=document.getElementById('send-btn');b.textContent='✅ Sent!';
-  setTimeout(()=>b.textContent='✅ Sent Mark Karo',2000);
-}
+function markSent(){const b=document.getElementById('send-btn');b.textContent='✅ Sent!';setTimeout(()=>b.textContent='✅ Sent Mark Karo',2000);}
 
 function addAlert(){
   const name=document.getElementById('ar-name').value||'Client';
   const list=document.getElementById('alerts-list');
   const div=document.createElement('div');
   div.className='alert-row';
-  div.innerHTML=`<span class="alert-icon">🔥</span><div><div class="alert-text">${name} interested hai — follow up karo aur payment le!</div><div class="alert-time">Abhi</div></div>`;
+  div.innerHTML=`<span class="alert-icon">🔥</span><div><div class="alert-text">${name} interested hai — follow up karo aur $500 payment le!</div><div class="alert-time">Abhi</div></div>`;
   list.insertBefore(div,list.firstChild);
   switchTab('alerts',document.querySelectorAll('.tab')[4]);
 }
